@@ -125,13 +125,33 @@ export const MenuItemButton = styled.button`
     }
 `;
 
+
+export const ContainerLogout = styled.div`
+    display: flex;
+    flex-direction: column;
+    > span{
+     display: none;
+     
+    }
+
+    &:hover{
+        >span{
+         margin-bottom: 10px;
+        display: flex;
+        cursor: pointer;
+        font-size: 12px;
+        color: ${props => props.theme.colors.white};
+        }
+    }
+`;
+
 export const ToggleMenu = styled.button`
     width: 40px;
     height: 40px;
 
     border-radius: 5px;
     font-size: 22px;
-    
+     
     background-color: ${props => props.theme.colors.warning};
     color: ${props => props.theme.colors.white};
 

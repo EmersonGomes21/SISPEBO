@@ -8,6 +8,7 @@ import {
     MdExitToApp,
     MdClose,
     MdMenu, 
+    
 } from 'react-icons/md';
 
 import {
@@ -26,6 +27,7 @@ import {
     MenuItemButton,
     ToggleMenu,
     ThemeToggleFooter,
+    ContainerLogout
 }  from './styles';
 
 const Aside: React.FC = () => {
@@ -72,12 +74,15 @@ const Aside: React.FC = () => {
                 <MenuItemLink href="/list/exit-balance">
                     <MdArrowDownward />
                     Saídas
-                </MenuItemLink>
-
-                <MenuItemButton onClick={signOut}>
+                </MenuItemLink >
+                 <ContainerLogout>
+                <MenuItemButton >
                     <MdExitToApp />
                     Sair
                 </MenuItemButton>
+                <span onClick={signOut}>Confirmar</span>
+
+                </ContainerLogout>
             </MenuContainer>
 
             <ThemeToggleFooter menuIsOpen={toggleMenuIsOpened}>

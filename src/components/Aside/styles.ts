@@ -135,8 +135,9 @@ export const ContainerLogout = styled.div`
     }
 
     &:hover{
-        >span{
-         margin-bottom: 10px;
+        > span{
+         margin-left: 10px;
+        padding-bottom: 20px;
         display: flex;
         cursor: pointer;
         font-size: 12px;

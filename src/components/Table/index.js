@@ -10,7 +10,7 @@ const Row = ({record})=>{
 const key = Object.keys(record);
   return (
 
-    <tr key={record.id}>
+    <tr key={record.id}> ''
     {
       key.map(key => <td key={key} style={{
         color: '#808080', textTransform: 'uppercase', fontSize: 18}}> {record[key]} </td>)
@@ -20,22 +20,26 @@ const key = Object.keys(record);
   )
 }
 
-//Componente de linhas
 
 const Table = ({
-  data,
-  heade
+  data
 }) => {
   const keys = Object.keys(data[0]);
-  
+  let contador = data.lenght;
+  let cont = 0;
+     
+   
   return (
     <Container >
       <div className="scroll-touch">
     <table>
       <thead>
+        {contador}
         <tr> 
+         Id
+        
           { /*colunas */ keys.map(key =>
-            <th key={key} style={{textTransform: 'uppercase'}}>{key}</th>
+            <th key={key} style={{textTransform: 'uppercase'}}> {key}</th>
           )}
 
         </tr>

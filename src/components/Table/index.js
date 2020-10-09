@@ -13,7 +13,7 @@ const key = Object.keys(record);
     <tr key={record.id}> ''
     {
       key.map(key => <td key={key} style={{
-        color: '#808080', textTransform: 'uppercase', fontSize: 18}}> {record[key]} </td>)
+        color: '#808080', textTransform: 'uppercase', fontSize: 16 }}>{record[key]} </td>)
     }
   </tr>
   
@@ -26,7 +26,7 @@ const Table = ({
 }) => {
   const keys = Object.keys(data[0]);
   let contador = data.lenght;
-  let cont = 0;
+  //let cont = 0;
      
    
   return (

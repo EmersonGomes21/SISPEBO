@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useCallback } from 'react';
-
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
 //import WalletBox from '../../components/WalletBox';
@@ -16,17 +15,20 @@ import sadImg from '../../assets/sad.svg';
 import grinningImg from '../../assets/grinning.svg';
 import opsImg from '../../assets/ops.svg';
 import Lists_Tables from '../../components/Lists_Tables';
-
+import ModalFilters from '../../components/ModalFilters';
 
 import {
     Container,
     Content,
+    BotaoModal
 } from './styles';
+import SearchInput from '../../components/SearchInput';
 
 
 const Dashboard: React.FC = () => {
     const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
     const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
+    const [isModalVisible, setModalVisible] = useState(false);
 
 
     const years = useMemo(() => {
@@ -325,7 +327,13 @@ const Dashboard: React.FC = () => {
 
     return (
         <Container>
+       
             <ContentHeader title="Dashboard" lineColor={'#F7931B'}>
+            <SearchInput/> 
+            <BotaoModal onClick={ () => setModalVisible(true)}>
+                Filtrar dados
+            </BotaoModal>
+            {isModalVisible ? <ModalFilters> <h2>Modal do App</h2> </ModalFilters> : ''}
                 <SelectInput
                     options={months}
                     onChange={(e) => handleMonthSelected(e.target.value)}

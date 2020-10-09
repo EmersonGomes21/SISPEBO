@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import gifLoading from '../../assets/loading5.gif';
 import { Container } from './styles';
 import Table from '../Table';
 
@@ -38,7 +38,7 @@ const Lists_Tables = () => {
 
 
   if (!data) {
-    return <h1>Loading...</h1>
+    return (<img src={gifLoading} alt="loading" width="300px" height="200px"/>)
   }
    console.log(data.atlasP);
   return (

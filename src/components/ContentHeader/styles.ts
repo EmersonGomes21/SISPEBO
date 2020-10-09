@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const TitleContainer = styled.div<ITitleContainerProps>`
 
-    > h1 {
+    > h2{
         color: ${props => props.theme.colors.white};
 
         &::after {

@@ -7,22 +7,19 @@ export const Container = styled.div`
   text-align: justify;
    width: 200%;
   
-  
   > table{
     margin: 20px 2px;
     width: 100%;
    
     > thead{
-     
-      
+        
       > tr{
 
         > th{
           padding-bottom: 15px;
         }
       }
-     
-      
+        
     }
     > tbody{
       

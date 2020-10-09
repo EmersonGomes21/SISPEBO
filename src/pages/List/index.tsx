@@ -3,7 +3,7 @@ import { uuid } from 'uuidv4';
  
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
-import HistoryFinanceCard from '../../components/HistoryFinanceCard';
+
 
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
@@ -192,13 +192,16 @@ const List: React.FC<IRouteParams> = ({ match }) => {
             <Content>
                 {
                     data.map(item => (
-                        <HistoryFinanceCard 
+                       /**
+                        *  <HistoryFinanceCard 
                             key={item.id}
                             tagColor={item.tagColor}
                             title={item.description}
                             subtitle={item.dateFormatted}
                             amount={item.amountFormatted}
                         />
+                        */
+                       <h1>Hello word</h1>
                     ))
                 }     
             </Content>            

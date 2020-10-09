@@ -7,4 +7,6 @@ export const Container = styled.input`
     padding: 10px;
 
     border-radius: 5px;
+    color: ${props => props.theme.colors.tertiary};
+    font-weight: bold;
 `;

@@ -10,7 +10,7 @@ const Row = ({record})=>{
 const key = Object.keys(record);
   return (
 
-    <tr key={record.id}> ''
+    <tr key={record.id}> 1
     {
       key.map(key => <td key={key} style={{
         color: '#808080', textTransform: 'uppercase', fontSize: 16 }}>{record[key]} </td>)

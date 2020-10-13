@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { Container, Modal } from './styles';
+//import {ModalClose} from '../../@types';
 
-const ModalFilters: React.FC = (
-  {children}
+const ModalFilters = (
+  {onClose = ()=> {}, children}
 ) => {
   return (
     <Modal>
       <Container>
-        <button className="close">Close</button>
+        <button className="close" onClick={onClose}></button>
         <div className="content"> {children}</div>
       </Container>
     </Modal>

@@ -16,31 +16,45 @@ export const Modal = styled.div`
 `;
 
 
-
 export const Container = styled.div`
-  margin-top: 7%;
-  background-color: #fff;
-  width: 60%;
-  color: #000;
-  height: 60%;
+  margin: 50px auto;
+  background-color: ${props => props.theme.colors.primary};
+  width: 85%;
+  color: ${props => props.theme.colors.white};
+  height: 80%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   transition: all ease .7s;
   border-radius: 15px;
 
    .close{
-    background-color: transparent;
-    outline: none;
-    width: 32px;
-    height: 32px;
-    background-color: red;
-    &:before, &:after{
+     display: flex;
+     margin: 20px auto;
+     background-color: transparent;
+     outline: none;
+     width: 32px;
+     height: 32px;
+     
+     position: relative;
+    cursor: pointer;
+
+    &:before,
+    &:after{
       content: '';
       position: absolute;
       width: 2.5px;
       height: 24px;
-      background-color: #000;
+      background-color: ${props => props.theme.colors.white};
+      
       
     }
+    &:before{
+      transform: rotate(45deg);
+    }
+    &:after{
+      transform: rotate(-45deg);
+    }
+
   }
 `;

@@ -8,3 +8,7 @@ export interface ApiAtlasP{
 
   }
   
+
+  export interface ModalClose{
+    onClose: boolean;
+  }

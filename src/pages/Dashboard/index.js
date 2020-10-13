@@ -25,14 +25,14 @@ import {
 import SearchInput from '../../components/SearchInput';
 
 
-const Dashboard: React.FC = () => {
-    const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
-    const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
+const Dashboard = () => {
+    const [monthSelected, setMonthSelected] = useState(new Date().getMonth() + 1);
+    const [yearSelected, setYearSelected] = useState(new Date().getFullYear());
     const [isModalVisible, setModalVisible] = useState(false);
 
 
     const years = useMemo(() => {
-        let uniqueYears: number[] = [];
+        let uniqueYears= [];
 
         [...expenses, ...gains].forEach(item => {
             const date = new Date(item.date);
@@ -63,7 +63,7 @@ const Dashboard: React.FC = () => {
 
 
     const totalExpenses = useMemo(() => {
-        let total: number = 0;
+        let total= 0;
 
         expenses.forEach(item => {
             const date = new Date(item.date);
@@ -84,7 +84,7 @@ const Dashboard: React.FC = () => {
 
 
     const totalGains = useMemo(() => {
-        let total: number = 0;
+        let total= 0;
 
         gains.forEach(item => {
             const date = new Date(item.date);
@@ -303,7 +303,7 @@ const Dashboard: React.FC = () => {
         ];
     }, [monthSelected, yearSelected]);
 
-    const handleMonthSelected = useCallback((month: string) => {
+    const handleMonthSelected = useCallback((month) => {
         try {
             const parseMonth = Number(month);
             setMonthSelected(parseMonth);
@@ -314,7 +314,7 @@ const Dashboard: React.FC = () => {
     }, []);
 
 
-    const handleYearSelected = useCallback((year: string) => {
+    const handleYearSelected = useCallback((year) => {
         try {
             const parseYear = Number(year);
             setYearSelected(parseYear);
@@ -324,7 +324,6 @@ const Dashboard: React.FC = () => {
         }
     }, []);
 
-
     return (
         <Container>
        
@@ -333,7 +332,8 @@ const Dashboard: React.FC = () => {
             <BotaoModal onClick={ () => setModalVisible(true)}>
                 Filtrar dados
             </BotaoModal>
-            {isModalVisible ? <ModalFilters> <h2>Modal do App</h2> </ModalFilters> : ''}
+
+            {isModalVisible ? <ModalFilters onClose={()=>setModalVisible(false)}> <h2>Modal do App</h2> </ModalFilters> : ''}
                 <SelectInput
                     options={months}
                     onChange={(e) => handleMonthSelected(e.target.value)}
@@ -347,61 +347,6 @@ const Dashboard: React.FC = () => {
             </ContentHeader>
 
             <Content>
-
-                {
-                    /*
-                <WalletBox 
-                    title="saldo"
-                    color="#4E41F0"
-                    amount={totalBalance}
-                    footerlabel="atualizado com base nas entradas e saídas"
-                    icon="dolar"
-                />
-
-                <WalletBox 
-                    title="entradas"
-                    color="#F7931B"
-                    amount={totalGains}
-                    footerlabel="atualizado com base nas entradas e saídas"
-                    icon="arrowUp"
-                />
-
-                <WalletBox 
-                    title="saídas"
-                    color="#E44C4E"
-                    amount={totalExpenses}
-                    footerlabel="atualizado com base nas entradas e saídas"
-                    icon="arrowDown"
-                />
-                */
-                }
-                {   /**
-                    <MessageBox
-                        title={message.title}
-                        description={message.description}
-                        footerText={message.footerText}
-                        icon={message.icon}
-                    />
-
-                    <PieChartBox data={relationExpensesVersusGains} />
-
-                    <HistoryBox
-                        data={historyData}
-                        lineColorAmountEntry="#F7931B"
-                        lineColorAmountOutput="#E44C4E"
-                    />
-
-                    <BarChartBox
-                        title="Saídas"
-                        data={relationExpensevesRecurrentVersusEventual}
-                    />
-
-                    <BarChartBox
-                        title="Entradas"
-                        data={relationGainsRecurrentVersusEventual}
-                    />
-
-                     */}
 
 
             <Lists_Tables/>

@@ -19,18 +19,28 @@ export const Modal = styled.div`
 export const Container = styled.div`
   margin: 50px auto;
   background-color: ${props => props.theme.colors.primary};
-  width: 85%;
+  width: 90%;
   color: ${props => props.theme.colors.white};
-  height: 80%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all ease .7s;
   border-radius: 15px;
 
+  .content{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    
+  }
+
    .close{
      display: flex;
-     margin: 20px auto;
+     margin: 30px auto;
      background-color: transparent;
      outline: none;
      width: 32px;

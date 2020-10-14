@@ -16,7 +16,7 @@ import grinningImg from '../../assets/grinning.svg';
 import opsImg from '../../assets/ops.svg';
 import Lists_Tables from '../../components/Lists_Tables';
 import ModalFilters from '../../components/ModalFilters';
-
+import Filters from '../../components/Filters';
 import {
     Container,
     Content,
@@ -330,10 +330,14 @@ const Dashboard = () => {
             <ContentHeader title="Dashboard" lineColor={'#F7931B'}>
             <SearchInput/> 
             <BotaoModal onClick={ () => setModalVisible(true)}>
-                Filtrar dados
+                Filtrar Colunas
             </BotaoModal>
 
-            {isModalVisible ? <ModalFilters onClose={()=>setModalVisible(false)}> <h2>Modal do App</h2> </ModalFilters> : ''}
+            {isModalVisible ? <ModalFilters onClose={()=>setModalVisible(false)}>
+            
+
+
+                  </ModalFilters> : ''}
                 <SelectInput
                     options={months}
                     onChange={(e) => handleMonthSelected(e.target.value)}

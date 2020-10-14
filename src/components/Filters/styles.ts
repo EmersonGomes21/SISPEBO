@@ -3,11 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   width: 100%;
+  margin: 0px auto;
+  justify-content: center;
 
   .input-block{
     display: flex;
     text-align: center;
-    font-size: 18px;
+    font-size: 12px;
     align-items: center;
     background-color: ${props => props.theme.colors.tertiary} ;
     border: 1px solid ${props => props.theme.colors.tertiary} ;
@@ -20,9 +22,10 @@ export const Container = styled.div`
      color: ${props => props.theme.colors.gray};
      font-weight: bold;
      cursor: pointer;
+     text-transform: uppercase;
     }
 
-    >input{
+    > input{
       cursor: pointer;
       
     }

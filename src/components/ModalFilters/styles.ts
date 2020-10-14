@@ -17,11 +17,10 @@ export const Modal = styled.div`
 
 
 export const Container = styled.div`
-  margin: 50px auto;
   background-color: ${props => props.theme.colors.primary};
-  width: 90%;
+  width: 100%;
   color: ${props => props.theme.colors.white};
-  height: 90%;
+  height: 130%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +31,7 @@ export const Container = styled.div`
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto ;
     grid-gap: 10px;
     padding: 10px;
     

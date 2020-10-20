@@ -1,9 +1,4 @@
-
-
-
-Dashboard desenvolvido em **ReactJs** com **TypeScript** inteiramente componentizado com **componentes puros**.
-
-
+# Dashboard para facilitar a consulta durante a leitura diária dos B.O 
 
 <div align="center">
   <small>Emerson Gomes - 2020</small>

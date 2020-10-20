@@ -42,6 +42,7 @@ export const Container = styled.div`
     border-radius: 5px;
     padding: 8px;
     margin-left: 20px;
+    top: -50px;cd
 
     &:hover{
       opacity: .7;
@@ -73,20 +74,18 @@ export const Container = styled.div`
      display: flex;
      justify-content: space-around;
       width: 100%;
-    
-     
+
      > li{
       width: 80%;
       margin: 30px;
       list-style: none;
       cursor: pointer;
-     
-      
+
        &:hover{
         opacity: .8;
       } 
 
-      >a{
+      > a{
         color: ${props => props.theme.colors.gray};
       }
 
@@ -111,8 +110,6 @@ export const Container = styled.div`
      width: 32px;
      height: 32px;
      position: relative;
-   
-
     &:before,
     &:after{
       content: '';
@@ -120,8 +117,7 @@ export const Container = styled.div`
       width: 2.5px;
       height: 24px;
       background-color: ${props => props.theme.colors.white};
-      
-      
+        
     }
     &:before{
       transform: rotate(45deg);

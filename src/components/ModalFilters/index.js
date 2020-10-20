@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Container, Modal } from './styles';
-import Filters from '../Filters';
-import Checkbox from '../Checkbox';
 import { Form } from '@unform/web';
 import InputsBop from '../ContainerInputs/InputsBop';
 import InputsTempo from '../ContainerInputs/InputsTempo';
@@ -15,21 +13,16 @@ const ModalFilters = (
   { onClose = () => { }, children }
 ) => {
 
-
-
   const [filterSelect, setFilterSelect] = useState('bop');
-  const [selectTodos, setSelectTodos] = useState(true);
-   let Inputs = document.querySelector('input');
-  let lengthInput = Inputs.length;
+
+
   function handleSubmit(data) {
     console.log(data);
   }
-   
-
 
   return (
-    <Modal>
-      <Container lengthInput={lengthInput} >
+    <Modal >
+      <Container  >
         <button className="close" onClick={onClose}></button>
         <div className="content">
 
@@ -44,24 +37,18 @@ const ModalFilters = (
               <li onClick={() => setFilterSelect('autoria')} > <a className={filterSelect === 'autoria' ? 'select' : ''}>AUTORIA</a></li>
               <li onClick={() => setFilterSelect('outros')} > <a className={filterSelect === 'outros' ? 'select' : ''}>OUTROS</a></li>
             </ul>
+              
+            <InputsBop filterSelect={filterSelect} />
+            <InputsTempo filterSelect={filterSelect} />
+            <InputsFato filterSelect={filterSelect} />
+            <InputsEspaco filterSelect={filterSelect} />
+            <InputsVitima filterSelect={filterSelect} />
+            <InputsAutoria filterSelect={filterSelect}  />
+            <InputsOutros filterSelect={filterSelect} />
 
-            <li className="todos"> <Filters type="checkbox" name="Todos" label="Todos" value={selectTodos} onClick={() => setSelectTodos(!selectTodos)}/> </li>
-
-             <InputsBop filterSelect = {filterSelect}/>
-             <InputsTempo filterSelect = {filterSelect}/>
-             <InputsFato filterSelect = {filterSelect}/>
-             <InputsEspaco filterSelect = {filterSelect}/>
-             <InputsVitima filterSelect = {filterSelect}/>
-             <InputsAutoria filterSelect = {filterSelect}/>
-             <InputsOutros filterSelect = {filterSelect}/>
-           
             <button type="submit" className="button">Filtrar</button>
-           
-           
           </Form>
-
-
-        {/*  <Checkbox/> */}
+       
         </div>
       </Container>
     </Modal>

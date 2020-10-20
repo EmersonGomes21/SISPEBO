@@ -1,0 +1,12 @@
+00 - Separar todos os grupos de inputs em componentes
+
+01 - Fazer com que ao clicar em todos, todos os inpust sejam marcados
+
+-- Provavel que seja necessário colocar um input de todos em cada grupo
+...............................  manipular quando o todos de um grupo for true (ativo) para seja passado o checked.
+
+
+
+
+
+deixar aPENAS UM INPUT DE TODOS E 

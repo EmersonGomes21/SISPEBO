@@ -1,9 +1,8 @@
 import React, {useEffect, useRef} from 'react';
-
 import { Container } from './styles';
 import {useField} from '@unform/core';
 
-const Filters = ({ label, name, type, checked,...rest  }) => {
+const Filters = ({ label, name, type,...rest  }) => {
 
   const inpuRef =  useRef(null); 
   const {fieldName, registerField, defaultValue, error} = useField(name);
@@ -20,7 +19,7 @@ const Filters = ({ label, name, type, checked,...rest  }) => {
     <Container>
       <div className="input-block" >
       <label htmlFor={name} > {label} </label>
-      < input ref={inpuRef} type={type} id={name} defaultChecked={checked} {...rest} />
+      < input ref={inpuRef} type={type} id={name}  {...rest} />
      </div>
     </Container>
   );

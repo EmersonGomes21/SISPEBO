@@ -9,13 +9,12 @@ import InputsVitima from '../ContainerInputs/InputsVitima';
 import InputsAutoria from '../ContainerInputs/InputsAutoria';
 import InputsOutros from '../ContainerInputs/InputsOutros';
 
+
 const ModalFilters = (
   { onClose = () => { }, children }
 ) => {
-
   const [filterSelect, setFilterSelect] = useState('bop');
-
-
+  
   function handleSubmit(data) {
     console.log(data);
   }

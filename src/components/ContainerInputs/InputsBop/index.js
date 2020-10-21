@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Filters from '../../Filters';
+import React, { useState, useEffect } from 'react';
+import Filters from '../../Filter';
 // import { Container } from './styles';
 
 function InputsBop({ filterSelect }) {
@@ -15,48 +15,35 @@ function InputsBop({ filterSelect }) {
   const [select10, setSelect10] = useState(false);
   const [selectTodosBop, setSelectTodosBop] = useState(true);
 
-  /*
-  
-  if (filterSelect !== 'bop') {
-    selectTodos = false;
-  };
- */
-  //let selectTodos2 = selectTodos;
-
-  /*if (selectTodos === true && filterSelect === 'bop') {
-    var checked = 'checked';
-
-  }else {
-    checked = '';
-  };
-
- */
   return (
     <>
       {/* Filtros do BOP */}
 
       <ul className={filterSelect === 'bop' ? 'selectd' : 'no-select'}>
 
-        <li className="todos"> <Filters type="checkbox" name="Todos" label="Todos" value={selectTodosBop} onClick={() => setSelectTodosBop(!selectTodosBop)} checked={true}/> </li>
+        <li className="todos"> <Filters type="checkbox" name="TodosBop" label="Todos" value={selectTodosBop} onClick={() => setSelectTodosBop(!selectTodosBop)} checked={ selectTodosBop}/> </li>
 
-        <li> <Filters type="checkbox" name="pk" label="pk" value={ select1}  onClick={() => setSelect1(!select1)} /> </li>
+        <li> <Filters type="checkbox" name="pk" label="pk" value={ select1 } 
+         onClick={() => setSelect1(!select1)} checked={ selectTodosBop }/>  </li>
 
-        <li> <Filters type="checkbox" name="servidor" label="servidor" value={ select2} onClick={() => setSelect2(!select2)} /> </li>
+        <li> <Filters type="checkbox" name="servidor" label="servidor" value={ select2 } onClick={() => setSelect2(!select2)} checked={ selectTodosBop }/> </li>
 
-        <li> <Filters type="checkbox" name="nro_bop" label="nro_bop" value={ select3} onClick={() => setSelect3(!select3)} /> </li>
+        <li> <Filters type="checkbox" name="nro_bop" label="nro_bop" value={ select3 } onClick={() => setSelect3(!select3)} checked={ selectTodosBop }/> </li>
 
-        <li> <Filters type="checkbox" name="nro_bop_editado" label="nro_bop_editado" value={ select4} onClick={() => setSelect4(!select4)} /> </li>
-        <li> <Filters type="checkbox" name="nro_tombo" label="nro_tombo" value={ select5} onClick={() => setSelect5(!select5)} /> </li>
+        <li> <Filters type="checkbox" name="nro_bop_editado" label="nro_bop_editado" value={ select4} onClick={() => setSelect4(!select4)} checked={ selectTodosBop }/> </li>
+        <li> <Filters type="checkbox" name="nro_tombo" label="nro_tombo" value={ select5 } onClick={() => setSelect5(!select5)}checked={ selectTodosBop } /> </li>
 
-        <li> <Filters type="checkbox" name="tipo_tombo" label="tipo_tombo" value={ select6} onClick={() => setSelect6(!select6)} /> </li>
+        <li> <Filters type="checkbox" name="tipo_tombo" label="tipo_tombo" value={ select6 } onClick={() => setSelect6(!select6)}
+        checked={ selectTodosBop } /> </li>
 
-        <li> <Filters type="checkbox" name="unidade_origem" label="unidade_origem" value={ select7} onClick={() => setSelect7(!select7)} /> </li>
+        <li> <Filters type="checkbox" name="unidade_origem" label="unidade_origem" value={ select7 } onClick={() => setSelect7(!select7)}
+        checked={ selectTodosBop } /> </li>
 
-        <li> <Filters type="checkbox" name="unidade_responsavel" label="unidade_responsavel" value={ select8} onClick={() => setSelect8(!select8)} /> </li>
+        <li> <Filters type="checkbox" name="unidade_responsavel" label="unidade_responsavel" value={ select8} onClick={() => setSelect8(!select8)} checked={ selectTodosBop }/> </li>
 
-        <li> <Filters type="checkbox" name="sit_proc" label="sit_proc" value={ select9} onClick={() => setSelect9(!select9)} /></li>
+        <li> <Filters type="checkbox" name="sit_proc" label="sit_proc" value={ select9} onClick={() => setSelect9(!select9)} checked={ selectTodosBop }/></li>
 
-        <li> <Filters type="checkbox" name="classe_motivo" label="classe_motivo" value={ select10} onClick={() => setSelect10(!select10)} /></li>
+        <li> <Filters type="checkbox" name="classe_motivo" label="classe_motivo" value={ select10} onClick={() => setSelect10(!select10)} checked={ selectTodosBop } /></li>
 
       </ul>
     </>

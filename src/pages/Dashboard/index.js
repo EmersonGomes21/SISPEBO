@@ -16,7 +16,7 @@ import grinningImg from '../../assets/grinning.svg';
 import opsImg from '../../assets/ops.svg';
 import Lists_Tables from '../../components/Lists_Tables';
 import ModalFilters from '../../components/ModalFilters';
-import Filters from '../../components/Filters';
+import Filters from '../../components/Filter';
 import {
     Container,
     Content,

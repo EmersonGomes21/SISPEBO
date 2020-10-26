@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Filters from '../../Filter';
-// import { Container } from './styles';
 function InputsBop({ filterSelect }) {
   const [select, setSelect] = useState([]);
   const [selectTodosBop, setSelectTodosBop] = useState(true);
-  const [value, setValue] = useState('');
+  const [value] = useState('');
 
 /**
  * blz, vc tá usando componentes não controlados, certo? Então não precisa se preocupar com esse items: [], que parece estar em um estado.. vc pode acessar todos os checkboxes dentro da sua função handleSubmit, pelo objeto de evento: console.log(e.target.elements.items).. coloca esse código no seu handleSubmit e me diz o que ele retorna :)
@@ -35,10 +34,10 @@ function InputsBop({ filterSelect }) {
       })
     );
 
-    console.log(select);
+    
 
-  },[select, value]);
-
+  },[]);
+  
   return (
     <>
       {/* Filtros do BOP */}

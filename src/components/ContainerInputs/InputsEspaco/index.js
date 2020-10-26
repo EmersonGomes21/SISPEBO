@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Filters from '../../Filter';
 // import { Container } from './styles';
 
 function InputsEspaco({ filterSelect }) {
   const [selectTodosEspaco, setSelectTodosEspaco] = useState(true);
+
+  useEffect(()=>{
+
+
+  }, [selectTodosEspaco])
 
   return (
     <>

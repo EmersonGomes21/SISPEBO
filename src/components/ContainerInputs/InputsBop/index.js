@@ -1,53 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import Filters from '../../Filter';
 // import { Container } from './styles';
-
 function InputsBop({ filterSelect }) {
-  const [select1, setSelect1] = useState(false);
-  const [select2, setSelect2] = useState(false);
-  const [select3, setSelect3] = useState(false);
-  const [select4, setSelect4] = useState(false);
-  const [select5, setSelect5] = useState(false);
-  const [select6, setSelect6] = useState(false);
-  const [select7, setSelect7] = useState(false);
-  const [select8, setSelect8] = useState(false);
-  const [select9, setSelect9] = useState(false);
-  const [select10, setSelect10] = useState(false);
+  const [select, setSelect] = useState([]);
   const [selectTodosBop, setSelectTodosBop] = useState(true);
+  const [value, setValue] = useState('');
+
+/**
+ * blz, vc tá usando componentes não controlados, certo? Então não precisa se preocupar com esse items: [], que parece estar em um estado.. vc pode acessar todos os checkboxes dentro da sua função handleSubmit, pelo objeto de evento: console.log(e.target.elements.items).. coloca esse código no seu handleSubmit e me diz o que ele retorna :)
+ */
+  useEffect(()=>{
+    let inputs = [
+      {id: 1, name: "pk", label: "pk", value: value },
+      {id: 2, name: "servidor", label: "servidor", value: value},
+      {id: 3, name: "nro_bop", label: "N° bop", value: value},
+      {id: 4, name: "nro_bop_editado", label: "N° bop editado", value: value},
+      {id: 5, name: "nro_tombo", label: "N° tombo", value: value},
+      {id: 6, name: "nro_bop_editado", label: "N° bop editado", value: value},
+      {id: 7, name: "unidade_origem", label: "unidade de origem", value: value},
+      {id: 8, name: "unidade_responsavel", label: "unidade_responsavel", value: value},
+      {id: 9, name: "sit_proc", label: "sit proc", value: value},
+      {id: 10, name: "classe_motivo", label: "classe motivo", value: value}
+    ];
+
+    setSelect(
+      inputs.map(d =>{
+        return {
+          select: true, 
+          id: d.id,
+          name: d.name,
+          label: d.label,
+          value: d.name
+        };
+      })
+    );
+
+    console.log(select);
+
+  },[select, value]);
 
   return (
     <>
       {/* Filtros do BOP */}
-
       <ul className={filterSelect === 'bop' ? 'selectd' : 'no-select'}>
+        <li className="todos"> <Filters 
+        type="checkbox" 
+        name="TodosBop"
+        label="Todos"
+        onClick={() => setSelectTodosBop(!selectTodosBop)}
+        checked={ selectTodosBop === true ? true : false}
+        /> </li>
 
-        <li className="todos"> <Filters type="checkbox" name="TodosBop" label="Todos" value={selectTodosBop} onClick={() => setSelectTodosBop(!selectTodosBop)} checked={ selectTodosBop}/> </li>
+       { select.map((d, i) => (
+          <li key={d.id} > 
+          <Filters 
+          type="checkbox" onChange={(event) =>{
+            let checked = event.target.checked;
+            setSelect(
+              select.map(data=>{
+              if(d.id===data.id){
 
-        <li> <Filters type="checkbox" name="pk" label="pk" value={ select1 } 
-         onClick={() => setSelect1(!select1)} checked={ selectTodosBop }/>  </li>
+                data.select = checked;
+              }
+              return data;
+            })
+            );
 
-        <li> <Filters type="checkbox" name="servidor" label="servidor" value={ select2 } onClick={() => setSelect2(!select2)} checked={ selectTodosBop }/> </li>
-
-        <li> <Filters type="checkbox" name="nro_bop" label="nro_bop" value={ select3 } onClick={() => setSelect3(!select3)} checked={ selectTodosBop }/> </li>
-
-        <li> <Filters type="checkbox" name="nro_bop_editado" label="nro_bop_editado" value={ select4} onClick={() => setSelect4(!select4)} checked={ selectTodosBop }/> </li>
-        <li> <Filters type="checkbox" name="nro_tombo" label="nro_tombo" value={ select5 } onClick={() => setSelect5(!select5)}checked={ selectTodosBop } /> </li>
-
-        <li> <Filters type="checkbox" name="tipo_tombo" label="tipo_tombo" value={ select6 } onClick={() => setSelect6(!select6)}
-        checked={ selectTodosBop } /> </li>
-
-        <li> <Filters type="checkbox" name="unidade_origem" label="unidade_origem" value={ select7 } onClick={() => setSelect7(!select7)}
-        checked={ selectTodosBop } /> </li>
-
-        <li> <Filters type="checkbox" name="unidade_responsavel" label="unidade_responsavel" value={ select8} onClick={() => setSelect8(!select8)} checked={ selectTodosBop }/> </li>
-
-        <li> <Filters type="checkbox" name="sit_proc" label="sit_proc" value={ select9} onClick={() => setSelect9(!select9)} checked={ selectTodosBop }/></li>
-
-        <li> <Filters type="checkbox" name="classe_motivo" label="classe_motivo" value={ select10} onClick={() => setSelect10(!select10)} checked={ selectTodosBop } /></li>
-
+          }} 
+          name={d.name} 
+          label={d.label} 
+          value={(d.select === true && selectTodosBop === true) ? d.value : ''}
+          checked={ selectTodosBop === true ? d.select : !d.select}
+           /></li>
+       ))}
       </ul>
     </>
+
+
   ); 
-}
+};
 
 export default InputsBop;
